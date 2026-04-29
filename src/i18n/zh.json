@@ -1,8 +1,8 @@
 {
   "meta": {
     "title": "X-Cache · 跨段块级缓存",
-    "description": "让少步驾驶世界模型再快 2.6×：免训练，块跳过率 71%，画面看不出区别。",
-    "ogAlt": "X-Cache：跨段块级缓存，让少步驾驶世界模型再快 2.6×。"
+    "description": "让少步驾驶世界模型再快 2.7×：免训练，块跳过率 71%，画面看不出区别。",
+    "ogAlt": "X-Cache：跨段块级缓存，让少步驾驶世界模型再快 2.7×。"
   },
   "nav": {
     "intro": "问题",
@@ -20,7 +20,7 @@
     "subtitle": "面向少步自回归世界模型的跨段块级缓存",
     "lede": "原本生成下一段画面，模型要把所有计算从头跑一遍。X-Cache 把其中大约七成的计算直接跳过——不用重新训练，画面也看不出区别。诀窍很简单：相邻两段画面里大部分东西并没有变，能省的就别再算一次。",
     "stat1Label": "DiT 加速",
-    "stat1Value": "2.6×",
+    "stat1Value": "2.7×",
     "stat2Label": "块跳过率",
     "stat2Value": "71%",
     "stat3Label": "7 相机 PSNR",
@@ -124,7 +124,7 @@
     "modeWipe": "对比",
     "modeHeatmap": "热力图",
     "labelLeft": "Baseline · 无缓存",
-    "labelRight": "X-Cache · 2.6× 加速",
+    "labelRight": "X-Cache · 2.7× 加速",
     "playLabel": "播放",
     "pauseLabel": "暂停",
     "hint": "拖动分隔条 · 拖动时间轴 · ←/→ 单帧步进 · 空格播放/暂停。右上的横条是实时 DiT 块状态：金色 = 不跳、蓝色 = 这次重算、绿色 = 复用上一段、靛蓝 = KV 更新阶段强保护。",
@@ -134,7 +134,7 @@
         "kicker": "城市",
         "title": "密集车流、行人、临街商铺。",
         "body": "城市片段——画面里的静态细节是测试集里最多的（车道线、临街招牌、远处楼房）。这种场景下门控几乎一直放行，跳过率稳定在 71.4%，残差只在车道线和远景树叶上看得到。",
-        "tags": ["7 段", "每段 264 帧", "PSNR 51.4 dB", "跳过 71.4%"],
+        "tags": ["7 段", "每段 264 帧", "PSNR 51.4 dB", "跳过 71.4%", "加速 2.7×"],
         "baseline": "/videos/urban_baseline.mp4",
         "cache": "/videos/urban_cache.mp4",
         "heatmap": "/videos/urban_heatmap.mp4",
@@ -145,7 +145,7 @@
         "kicker": "高速公路",
         "title": "城市高架与城际高速。",
         "body": "高速片段——景深远、前向运动很快、画面里没什么近物。门控跳过了 71.6%，PSNR 反而比城市还高，到了 54.7 dB——因为大部分像素是天空和路面，本身就比较平整，那点缓存带来的扰动一吸就没了。",
-        "tags": ["3 段", "PSNR 54.7 dB", "跳过 71.6%", "加速 2.66×"],
+        "tags": ["3 段", "PSNR 54.7 dB", "跳过 71.6%", "加速 2.7×"],
         "baseline": "/videos/highway_baseline.mp4",
         "cache": "/videos/highway_cache.mp4",
         "heatmap": "/videos/highway_heatmap.mp4",
@@ -156,7 +156,7 @@
         "kicker": "掉头",
         "title": "整组数据里跨段位移最大的场景。",
         "body": "掉头片段——自车在做大角度转向，相邻两段画面之间的差别是整组数据里最大的。即便如此，跨段指纹依然管用：跳过率 71.3%，逐帧 PSNR 跨过段边界时也没有任何抖动。",
-        "tags": ["3 段", "PSNR 52.0 dB", "跳过 71.3%", "加速 2.70×"],
+        "tags": ["3 段", "PSNR 52.0 dB", "跳过 71.3%", "加速 2.7×"],
         "baseline": "/videos/uturn_baseline.mp4",
         "cache": "/videos/uturn_cache.mp4",
         "heatmap": "/videos/uturn_heatmap.mp4",

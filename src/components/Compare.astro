@@ -15,7 +15,7 @@ const { t, scenario, idx = 0 } = Astro.props;
 const id = `cmp-${scenario.id}`;
 
 const skipTag = scenario.tags.find((tag) => /skip/i.test(tag) || /跳过/.test(tag)) ?? "skip 71%";
-const speedupTag = scenario.tags.find((tag) => /speedup|加速|×/.test(tag)) ?? "2.6×";
+const speedupTag = scenario.tags.find((tag) => /speedup|加速|×/.test(tag)) ?? "2.7×";
 
 // 27 DiT blocks. A reproducible per-block "skipability" — blocks 1..19 sit
 // on the 0.75 plateau, 20..26 fall to ≈ 0.69 (per the paper's plot). Block 0

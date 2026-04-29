@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "X-Cache · Cross-Chunk Block Caching",
-    "description": "A training-free, cross-chunk caching method for few-step autoregressive driving world models. 71% block skip, 2.6× wall-clock speedup, no visible quality loss.",
+    "description": "A training-free, cross-chunk caching method for few-step autoregressive driving world models. 71% block skip, 2.7× wall-clock speedup, no visible quality loss.",
     "ogAlt": "X-Cache: cross-chunk block caching for autoregressive video diffusion."
   },
   "nav": {
@@ -20,7 +20,7 @@
     "subtitle": "Cross-Chunk Block Caching for Few-Step Autoregressive World Models",
     "lede": "Generate the next chunk of a 7-camera driving world without paying full DiT compute. X-Cache reuses block residuals across consecutive chunks instead of across denoising steps — surviving few-step distillation that erases every other caching trick.",
     "stat1Label": "DiT speedup",
-    "stat1Value": "2.6×",
+    "stat1Value": "2.7×",
     "stat2Label": "Block skip rate",
     "stat2Value": "71%",
     "stat3Label": "7-cam PSNR",
@@ -124,7 +124,7 @@
     "modeWipe": "Wipe",
     "modeHeatmap": "Heatmap",
     "labelLeft": "Baseline · full compute",
-    "labelRight": "X-Cache · 2.6× faster",
+    "labelRight": "X-Cache · 2.7× faster",
     "playLabel": "Play",
     "pauseLabel": "Pause",
     "hint": "Drag the seam · scrub the timeline · ← / → to step one frame · space to play. Top-right strip is the live DiT block ribbon — gold = anchor, blue = recomputed, green = reused, indigo = KV-update protected.",
@@ -134,7 +134,7 @@
         "kicker": "Urban",
         "title": "Dense traffic, pedestrians, storefronts.",
         "body": "Seven urban clips with the highest static texture density in the test split. The cosine gate runs near-saturated; skip rate stays at 71.4% and the residual sits on lane edges and far-field foliage.",
-        "tags": ["7 clips", "264 frames each", "PSNR 51.4 dB", "skip 71.4%"],
+        "tags": ["7 clips", "264 frames each", "PSNR 51.4 dB", "skip 71.4%", "speedup 2.7×"],
         "baseline": "/videos/urban_baseline.mp4",
         "cache": "/videos/urban_cache.mp4",
         "heatmap": "/videos/urban_heatmap.mp4",
@@ -145,7 +145,7 @@
         "kicker": "Highway",
         "title": "Elevated express ring & ordinary motorway.",
         "body": "Three clips. Long depth of field, rapid forward motion, sparse foreground. The gate skips 71.6% of blocks — and decoded 7-cam PSNR climbs to 54.7 dB because most pixels are sky/asphalt that absorb latent perturbations cleanly.",
-        "tags": ["3 clips", "PSNR 54.7 dB", "skip 71.6%", "speedup 2.66×"],
+        "tags": ["3 clips", "PSNR 54.7 dB", "skip 71.6%", "speedup 2.7×"],
         "baseline": "/videos/highway_baseline.mp4",
         "cache": "/videos/highway_cache.mp4",
         "heatmap": "/videos/highway_heatmap.mp4",
@@ -156,7 +156,7 @@
         "kicker": "U-turn",
         "title": "Maximum cross-chunk motion in the split.",
         "body": "Three clips where the ego vehicle executes a sharp heading change. Adjacent chunks are the most different in the dataset — yet the cross-chunk fingerprint still survives, with skip rate 71.3% and no chunk-boundary drift visible in the per-frame PSNR trace.",
-        "tags": ["3 clips", "PSNR 52.0 dB", "skip 71.3%", "speedup 2.70×"],
+        "tags": ["3 clips", "PSNR 52.0 dB", "skip 71.3%", "speedup 2.7×"],
         "baseline": "/videos/uturn_baseline.mp4",
         "cache": "/videos/uturn_cache.mp4",
         "heatmap": "/videos/uturn_heatmap.mp4",
@@ -166,7 +166,7 @@
   },
   "results": {
     "kicker": "06 · Numbers",
-    "title": "Same seed, same conditioning, 2.6× faster — and the pixels prove it.",
+    "title": "Same seed, same conditioning, 2.7× faster — and the pixels prove it.",
     "tableCaption": "Per-scenario summary against the no-cache baseline. Per-camera rows are F-C (front centre), F-W (front wide), S-FL/FR/RL/RR (sides) and Rear; the highlighted 7-cam row is the stitched 7-view image used in the qualitative figures.",
     "ablationCaption": "One protection mechanism removed at a time on a held-out highway clip. KV-update protection is the only hard requirement; every other knob is a margin-of-safety knob.",
     "skipKicker": "Skip rate by block index",
